@@ -3,7 +3,6 @@ package id.ac.unhas.tesdata
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -58,6 +57,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.RowClickListener {
     override fun onItemClickListener(user: UserEntity) {
         NameInput.setText(user.name)
         EmailInput.setText(user.email)
+        NameInput.setTag(NameInput.id, user.id)
         SaveButton.setText("Update")
     }
 }

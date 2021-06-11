@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(entities = [UserEntity:: class], version = 1)
@@ -17,7 +16,7 @@ abstract class RoomDbApp: RoomDatabase () {
         fun getAppDatabase(context: Context): RoomDbApp? {
             if (INSTANCE == null) {
                 INSTANCE = Room.databaseBuilder<RoomDbApp>(
-                        context.applicationContext, RoomDbApp::class.java, "AppDB"
+                        context.applicationContext, RoomDbApp::class.java, "DbApp"
                 )
                     .allowMainThreadQueries()
                     .build()
