@@ -29,7 +29,7 @@ class MainActivityViewModel(app:Application): AndroidViewModel(app) {
     }
 
     fun updateUserInfo(entity: UserEntity){
-        val userDao=RoomDbApp.getAppDatabase(getApplication())?.userDao()
+        val userDao = RoomDbApp.getAppDatabase(getApplication())?.userDao()
         userDao?.updateUser(entity)
         getAllUser()
     }

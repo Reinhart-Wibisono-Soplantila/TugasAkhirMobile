@@ -7,7 +7,7 @@ interface UserDao {
     @Query("SELECT * FROM userinfo ORDER BY id DESC")
     fun getAllUserInfo(): List<UserEntity>?
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertUser(user: UserEntity?)
 
     @Delete

@@ -15,7 +15,7 @@ class RecyclerViewAdapter(val listener: RowClickListener): RecyclerView.Adapter<
         this.items = data
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewAdapter.MyViewHolder {
         val inflater = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_row, parent, false)
         return MyViewHolder(inflater,listener)
     }
@@ -24,7 +24,7 @@ class RecyclerViewAdapter(val listener: RowClickListener): RecyclerView.Adapter<
         return items.size
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerViewAdapter.MyViewHolder, position: Int) {
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(items[position])
         }
